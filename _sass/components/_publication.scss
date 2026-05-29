@@ -35,10 +35,71 @@
   }
 }
 
-// Year badge — accent pill floated right
+// Meta row: [number] [type badge] → [year badge]
+// Number comes from the CSS counter on ol.bibliography > li via ::before.
+.pub-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+
+  &::before {
+    content: counter(pub-counter) ".";
+    color: var(--text-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+}
+
+// Type badge (Preprint / Journal / Conference)
+.pub-type-badge {
+  display: inline-block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.625rem;
+  border-radius: var(--radius-full);
+  border: 1px solid;
+}
+
+.pub-type-preprint {
+  background-color: rgba(180, 100, 20, 0.08);
+  color: #a06010;
+  border-color: #c07818;
+
+  [data-bs-theme="dark"] & {
+    background-color: rgba(230, 150, 50, 0.1);
+    color: #e69030;
+    border-color: #c07818;
+  }
+}
+
+.pub-type-journal {
+  background-color: rgba(26, 80, 160, 0.08);
+  color: #1a50a0;
+  border-color: #2a6acc;
+
+  [data-bs-theme="dark"] & {
+    background-color: rgba(80, 150, 230, 0.1);
+    color: #6aadee;
+    border-color: #2a6acc;
+  }
+}
+
+.pub-type-conference {
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+// Year badge — accent pill, pushed to the far right of .pub-meta-row
 .year-badge {
   display: inline-block;
-  float: right;
+  margin-left: auto;
   font-family: 'DM Sans', sans-serif;
   font-size: 0.6875rem;
   font-weight: 700;
@@ -48,8 +109,6 @@
   background-color: var(--accent-light);
   color: var(--accent);
   border: 1px solid var(--accent);
-  margin-left: var(--space-3);
-  margin-top: var(--space-1);
 }
 
 // Collapsible bibtex/abstract
@@ -113,13 +172,33 @@
   }
 }
 
+// Remove browser-default <ol> indent so pub text aligns with the search bar.
+// Numbering is handled by .pub-meta-row::before via the pub-counter counter.
+ol.bibliography {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+  counter-reset: pub-counter;
+
+  > li {
+    counter-increment: pub-counter;
+    max-width: none; // override global li { max-width: 65ch } from _typography.scss
+  }
+}
+
+// If kramdown still wraps the search input in a <p>, undo the 65ch cap from _typography.scss
+#pubList p {
+  max-width: none;
+}
+
 // Search bar
 .pub-search {
   width: 100%;
+  box-sizing: border-box;
   padding: var(--space-3) var(--space-4);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);
-  background-color: var(--bg-card);
+  background-color: var(--bg-secondary);
   color: var(--text-primary);
   font-family: 'DM Sans', sans-serif;
   font-size: 0.875rem;

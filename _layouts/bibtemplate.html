@@ -2,60 +2,89 @@
 ---
 
 <div class="pub-entry" data-pub-searchable>
-  <div class="text-justify">{{ reference }}</div>
 
-  <!-- You can use the below to make your name bold -->
-  <!-- <div class="text-justify">{{ reference | replace_first: 'Bryngelson, S. H.', '<b>Bryngelson, S. H.</b>' }}</div> -->
-
-  {% assign bibtest = false %}
-  {% if entry.file %}
-  {% assign bibfile = "/papers/" | append: entry.file %}
-  {% for file in site.static_files %}
-    {% if file.path contains bibfile %}
-     {% assign bibtest = true %}
+  <div class="pub-meta-row">
+    {% if entry.type == 'unpublished' %}
+    <span class="pub-type-badge pub-type-preprint">Preprint</span>
+    {% elsif entry.type == 'article' %}
+    <span class="pub-type-badge pub-type-journal">Journal</span>
+    {% else %}
+    <span class="pub-type-badge pub-type-conference">Conference</span>
     {% endif %}
-  {% endfor %}
+    <span class="year-badge">{{ entry.year }}</span>
+  </div>
+
+  <div class="pub-title">{{ entry.title }}</div>
+
+  <div class="pub-authors">
+    {% assign raw_authors = entry.author | split: " and " %}
+    {% for raw_author in raw_authors %}
+      {% assign raw_author_stripped = raw_author | strip %}
+      {% assign name_parts = raw_author_stripped | split: ", " %}
+      {% if name_parts.size >= 2 %}
+        {% assign display_name = name_parts[1] | strip | append: " " | append: name_parts[0] | strip %}
+      {% else %}
+        {% assign display_name = raw_author_stripped %}
+      {% endif %}
+      {% if raw_author_stripped contains "Braun, Florian" %}<strong>{{ display_name }}</strong>{% else %}{{ display_name }}{% endif %}{% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+  </div>
+
+  {% if entry.booktitle %}
+  <div class="pub-venue">{{ entry.booktitle }}{% if entry.pages %}, pp.&nbsp;{{ entry.pages }}{% endif %}</div>
+  {% elsif entry.journal %}
+  <div class="pub-venue">{{ entry.journal }}</div>
   {% endif %}
 
   <div class="pub-actions">
-    {% if bibtest %}
-    <a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
+
+    {% comment %} Resolve a linkable URL: explicit url field > local pdf file > DOI {% endcomment %}
+    {% assign _pub_url = entry.url | strip %}
+    {% assign _doi_str = entry.doi | strip %}
+
+    {% if _pub_url != "" %}
+    <a href="{{ _pub_url }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
+    {% else %}
+      {% assign _bibtest = false %}
+      {% if entry.file %}
+        {% assign _bibfile = "/papers/" | append: entry.file %}
+        {% for _f in site.static_files %}
+          {% if _f.path contains _bibfile %}{% assign _bibtest = true %}{% endif %}
+        {% endfor %}
+      {% endif %}
+      {% if _bibtest %}
+      <a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
+      {% elsif _doi_str != "" %}
+      <a href="https://doi.org/{{ _doi_str }}" target="_blank" class="btn-pill btn-pdf">Read</a>
+      {% endif %}
+    {% endif %}
+
+    {% if _doi_str != "" and entry.type != 'unpublished' %}
+    <a href="https://doi.org/{{ _doi_str }}" target="_blank" class="btn-pill btn-doi">DOI</a>
     {% endif %}
 
     {% if entry.project %}
     <a href="{{ entry.project }}" target="_blank" class="btn-pill btn-website">Project</a>
     {% endif %}
 
-    {% if entry.doi %}
-      {% if entry.type == 'unpublished' %}
-      <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank" class="btn-pill btn-arxiv">arXiv</a>
-      {% else %}
-      <a href="{{ entry.doi | prepend: 'http://doi.org/' }}" target="_blank" class="btn-pill btn-doi">DOI</a>
-      {% endif %}
-    {% endif %}
-
-    {% if entry.type == 'unpublished' or entry.type == 'article' or entry.type == 'thesis' or entry.type == 'inproceedings' or entry.type == 'report' %}
     <button class="btn-pill btn-bib" data-toggle-target="bib-{{ entry.key }}">BIB</button>
-    {% endif %}
 
     {% if entry.abstract %}
     <button class="btn-pill btn-abstract" data-toggle-target="abs-{{ entry.key }}">Abstract</button>
     {% endif %}
+
   </div>
 
-  {% if entry.abstract %}
   <div class="pub-collapse" id="bib-{{ entry.key }}">
-    <pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
+    <div class="copy-wrapper">
+      <pre>{% if entry.abstract %}{{ entry.bibtex | remove: "entry.abstract" }}{% else %}{{ entry.bibtex }}{% endif %}</pre>
+    </div>
   </div>
-  {% else %}
-  <div class="pub-collapse" id="bib-{{ entry.key }}">
-    <pre>{{ entry.bibtex }}</pre>
-  </div>
-  {% endif %}
 
   {% if entry.abstract %}
   <div class="pub-collapse" id="abs-{{ entry.key }}">
     <pre>{{ entry.abstract }}</pre>
   </div>
   {% endif %}
+
 </div>
