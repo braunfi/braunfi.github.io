@@ -1,0 +1,18 @@
+# Research resources: datasets, benchmarks, and tools.
+# Each entry supports:
+#   title    (required)
+#   desc     (required)
+#   image    (optional) — path relative to /images/, e.g. resources/my-dataset.jpg
+#   url      (optional) — link shown as a button on the card
+#   type     (optional) — badge label, e.g. "Dataset", "Benchmark", "Tool"
+#   year     (optional)
+#
+# Example (uncomment and fill in):
+# - title: "My Dataset"
+#   type: "Dataset"
+#   year: 2025
+#   # image: resources/my-dataset.jpg
+#   url: "https://github.com/braunfi/my-dataset"
+#   desc: >
+#     A benchmark dataset for video misinformation detection,
+#     covering X manipulation types across Y videos.

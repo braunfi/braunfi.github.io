@@ -1,0 +1,9 @@
+# Software projects shown on /software.
+# Leave this file empty (or with only comments) to show the placeholder message.
+# Fields: name, repo (GitHub repo path, e.g. braunfi/my-repo), website (optional), authors, desc
+
+# - name: Project Name
+#   repo: braunfi/REPO
+#   website: https://WEBSITE   # optional — remove this line if there is no project website
+#   authors: "Florian Braun"
+#   desc: Brief description of what the tool does and who it is for.

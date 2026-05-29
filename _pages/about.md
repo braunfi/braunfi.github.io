@@ -16,9 +16,11 @@ permalink: /about/
 <div class="pi-links">
 {% if site.email %}<a href="mailto:{{ site.email }}" class="icon-link" title="Email"><i class="fa-solid fa-envelope"></i></a>{% endif %}
 {% if site.links.cv and site.links.cv != "" %}<a href="{{ site.url }}{{ site.baseurl }}/{{ site.links.cv }}" class="icon-link" title="CV"><i class="ai ai-cv"></i></a>{% endif %}
-{% if site.links.google_scholar and site.links.google_scholar != "" %}<a href="{{ site.links.google_scholar }}" class="icon-link" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>{% endif %}
-{% if site.links.github and site.links.github != "" %}<a href="{{ site.links.github }}" class="icon-link" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
-{% if site.links.researchgate and site.links.researchgate != "" %}<a href="{{ site.links.researchgate }}" class="icon-link" title="ResearchGate"><i class="ai ai-researchgate"></i></a>{% endif %}
+{% if site.links.google_scholar and site.links.google_scholar != "" %}<a href="{{ site.links.google_scholar }}" class="icon-link" title="Google Scholar" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i></a>{% endif %}
+{% if site.links.github and site.links.github != "" %}<a href="{{ site.links.github }}" class="icon-link" title="GitHub" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>{% endif %}
+{% if site.links.researchgate and site.links.researchgate != "" %}<a href="{{ site.links.researchgate }}" class="icon-link" title="ResearchGate" target="_blank" rel="noopener"><i class="ai ai-researchgate"></i></a>{% endif %}
+{% if site.links.orcid and site.links.orcid != "" %}<a href="{{ site.links.orcid }}" class="icon-link" title="ORCID" target="_blank" rel="noopener"><i class="ai ai-orcid"></i></a>{% endif %}
+{% if site.links.linkedin and site.links.linkedin != "" %}<a href="{{ site.links.linkedin }}" class="icon-link" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>{% endif %}
 </div>
 {% if site.data.pi[0].education %}
 <ul style="margin-top: var(--space-4);">
@@ -30,6 +32,17 @@ permalink: /about/
 </div>
 </div>
 </div>
+
+{% if site.data.affiliations %}
+<div class="section-card">
+<h3>Affiliations</h3>
+<ul>
+{% for affiliation in site.data.affiliations %}
+<li><a href="{{ affiliation.url }}" target="_blank">{{ affiliation.name }}</a></li>
+{% endfor %}
+</ul>
+</div>
+{% endif %}
 
 {% if site.data.grants %}
 <div class="section-card">
@@ -63,6 +76,11 @@ permalink: /about/
 </ul>
 </div>
 {% endif %}
+
+<div class="section-card" style="border-left: 3px solid var(--accent); padding-left: var(--space-6);">
+<h3 style="margin-top: 0;">Internships &amp; Collaborations</h3>
+<p>Interested in working together? See the <a href="https://media-bias-research.org/join-us/" target="_blank">Media Bias Group open positions</a> or the <a href="https://www.nii.ac.jp/en/about/international/mouresearch/" target="_blank">NII internship programme</a>, or <a href="mailto:{{ site.email }}">reach out directly</a>.</p>
+</div>
 
 {% if site.data.funders %}
 <div class="section-card">

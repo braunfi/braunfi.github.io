@@ -7,21 +7,20 @@ permalink: /software/
 
 ## Software
 
+{% if site.data.software and site.data.software.size > 0 %}
+{% for project in site.data.software %}
 <div class="section-card">
-<h4>Path Integral Monte Carlo</h4>
+<h4><a href="https://github.com/{{ project.repo }}" target="_blank">{{ project.name }}</a></h4>
 <div class="pub-actions" style="margin-bottom: var(--space-3);">
-<a href="https://example.com" target="_blank" class="btn-pill btn-website">Website</a>
-<a href="https://github.com" target="_blank" class="btn-pill btn-git">Git</a>
+{% if project.website %}<a href="{{ project.website }}" target="_blank" class="btn-pill btn-website">Website</a>{% endif %}
+<a href="https://github.com/{{ project.repo }}" target="_blank" class="btn-pill btn-git">Git</a>
 </div>
-<p><strong>Authors:</strong> <em>R. P. Feynman, A. Hibbs</em></p>
-<p>A Monte Carlo simulation code for computing quantum mechanical path integrals in many-body systems. Used to study the lambda transition in liquid helium and other quantum statistical mechanics problems.</p>
+<p><strong>Authors:</strong> <em>{{ project.authors }}</em></p>
+<p>{{ project.desc }}</p>
 </div>
-
+{% endfor %}
+{% else %}
 <div class="section-card">
-<h4>QED Diagram Calculator</h4>
-<div class="pub-actions" style="margin-bottom: var(--space-3);">
-<a href="https://example.com" target="_blank" class="btn-pill btn-website">Website</a>
+<p style="color: var(--text-secondary); font-style: italic;">Open-source tools are in preparation and will be listed here soon. In the meantime, you can find my projects on <a href="{{ site.links.github }}">GitHub</a>.</p>
 </div>
-<p><strong>Authors:</strong> <em>R. P. Feynman</em></p>
-<p>A tool for systematically enumerating and evaluating Feynman diagrams in quantum electrodynamics calculations, automating the computation of scattering amplitudes to arbitrary order in perturbation theory.</p>
-</div>
+{% endif %}

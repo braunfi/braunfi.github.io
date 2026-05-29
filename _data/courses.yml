@@ -1,0 +1,8 @@
+# Courses shown on /teaching.
+# Leave this file empty (or with only comments) to show the placeholder message.
+# Fields: name, institution, term, desc
+
+# - name: Course Name
+#   institution: NII / SOKENDAI
+#   term: Spring 2025
+#   desc: Brief description of the course content and your role.

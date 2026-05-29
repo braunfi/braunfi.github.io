@@ -1,0 +1,11 @@
+# Affiliations shown on the About page.
+# Fields: name, url
+
+- name: Media Bias Group
+  url: https://www.media-bias-research.org
+
+- name: "Echizen Lab, National Institute of Informatics (NII)"
+  url: https://research.nii.ac.jp/~iechizen/official/index-e.html
+
+- name: SOKENDAI (The Graduate University for Advanced Studies)
+  url: https://www.soken.ac.jp/en/

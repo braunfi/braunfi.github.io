@@ -1,0 +1,30 @@
+# Research areas shown on /research and as chips on the homepage.
+# To add an image to a card, add:  image: research/your-file.svg
+# (path is relative to /images/)
+
+- title: "Video Misinformation Detection"
+  # image: research/misinformation-detection.svg
+  desc: >
+    Building AI models that detect misinformation in videos, working across the full pipeline:
+    analysing and modelling manipulation tactics, proposing benchmark datasets, and designing
+    detection algorithms.
+
+- title: "Responsible AI"
+  # image: research/responsible-ai.svg
+  desc: >
+    Investigating the real-world effects of misinformation detection systems on people,
+    especially when they produce incorrect outputs. Understanding and mitigating the human
+    consequences of AI errors in high-stakes information contexts.
+
+- title: "Trustworthy AI"
+  # image: research/trustworthy-ai.svg
+  desc: >
+    Researching methods for communicating misinformation assessments transparently, preserving
+    human agency in the decision-making process. The goal is to inform rather than dictate,
+    leaving final judgement to the recipient.
+
+- title: "Explainable AI"
+  # image: research/explainable-ai.svg
+  desc: >
+    Increasing the transparency and interpretability of video misinformation detection models
+    so that their outputs can be audited, contested, and trusted.

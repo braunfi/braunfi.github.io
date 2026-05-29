@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" fill="none">
+  <defs>
+    <style>
+      .bg { fill: #f0ece4; }
+      .p  { fill: #5a1a7a; }
+      .s  { stroke: #5a1a7a; fill: none; }
+      .a  { fill: #5a1a7a; fill-opacity: .12; }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #262520; }
+        .p  { fill: #c084fc; }
+        .s  { stroke: #c084fc; fill: none; }
+        .a  { fill: #c084fc; fill-opacity: .12; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="220" class="bg"/>
+
+  <!-- Film frame -->
+  <rect x="28" y="55" width="140" height="110" rx="6" class="a"/>
+  <rect x="28" y="55" width="140" height="110" rx="6" class="s" stroke-width="2.5"/>
+
+  <!-- Sprocket holes top -->
+  <rect x="40"  y="46" width="11" height="9" rx="2" class="p"/>
+  <rect x="58"  y="46" width="11" height="9" rx="2" class="p"/>
+  <rect x="76"  y="46" width="11" height="9" rx="2" class="p"/>
+  <rect x="94"  y="46" width="11" height="9" rx="2" class="p"/>
+  <rect x="112" y="46" width="11" height="9" rx="2" class="p"/>
+  <rect x="130" y="46" width="11" height="9" rx="2" class="p"/>
+  <rect x="148" y="46" width="11" height="9" rx="2" class="p"/>
+
+  <!-- Sprocket holes bottom -->
+  <rect x="40"  y="165" width="11" height="9" rx="2" class="p"/>
+  <rect x="58"  y="165" width="11" height="9" rx="2" class="p"/>
+  <rect x="76"  y="165" width="11" height="9" rx="2" class="p"/>
+  <rect x="94"  y="165" width="11" height="9" rx="2" class="p"/>
+  <rect x="112" y="165" width="11" height="9" rx="2" class="p"/>
+  <rect x="130" y="165" width="11" height="9" rx="2" class="p"/>
+  <rect x="148" y="165" width="11" height="9" rx="2" class="p"/>
+
+  <!-- Play triangle -->
+  <polygon points="78,85 78,135 114,110" class="p" opacity=".65"/>
+
+  <!-- Horizontal scan line (active frame) -->
+  <line x1="34"  y1="98"  x2="162" y2="98"  class="s" stroke-width="1"   stroke-dasharray="5 3" opacity=".45"/>
+  <line x1="34"  y1="110" x2="162" y2="110" class="s" stroke-width="2"   opacity=".75"/>
+  <line x1="34"  y1="122" x2="162" y2="122" class="s" stroke-width="1"   stroke-dasharray="5 3" opacity=".45"/>
+
+  <!-- Arrow -->
+  <line x1="182" y1="110" x2="218" y2="110" class="s" stroke-width="2.5" stroke-linecap="round"/>
+  <polygon points="214,104 226,110 214,116" class="p"/>
+
+  <!-- Detection result area -->
+  <rect x="234" y="55" width="140" height="110" rx="6" class="a"/>
+  <rect x="234" y="55" width="140" height="110" rx="6" class="s" stroke-width="2.5"/>
+
+  <!-- Magnifying glass -->
+  <circle cx="289" cy="97" r="25" class="s" stroke-width="2.5"/>
+  <line x1="307" y1="115" x2="326" y2="134" class="s" stroke-width="4.5" stroke-linecap="round"/>
+
+  <!-- × inside magnifying glass -->
+  <line x1="280" y1="88" x2="298" y2="106" class="s" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="298" y1="88" x2="280" y2="106" class="s" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Confidence dots below -->
+  <circle cx="248" cy="148" r="5" class="p" opacity=".9"/>
+  <circle cx="263" cy="148" r="5" class="p" opacity=".7"/>
+  <circle cx="278" cy="148" r="5" class="p" opacity=".5"/>
+  <circle cx="293" cy="148" r="5" class="p" opacity=".25"/>
+  <circle cx="308" cy="148" r="5" class="p" opacity=".15"/>
+  <circle cx="323" cy="148" r="5" class="p" opacity=".1"/>
+  <circle cx="338" cy="148" r="5" class="p" opacity=".08"/>
+  <circle cx="353" cy="148" r="5" class="p" opacity=".06"/>
+</svg>

@@ -22,6 +22,10 @@
     <a href="{{ site.url }}{{ site.baseurl }}/papers/{{ entry.file }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
     {% endif %}
 
+    {% if entry.project %}
+    <a href="{{ entry.project }}" target="_blank" class="btn-pill btn-website">Project</a>
+    {% endif %}
+
     {% if entry.doi %}
       {% if entry.type == 'unpublished' %}
       <a href="{{ entry.doi | prepend: 'https://arxiv.org/abs/' }}" target="_blank" class="btn-pill btn-arxiv">arXiv</a>

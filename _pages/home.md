@@ -9,31 +9,36 @@ permalink: /
 <p class="home-hero-sub">{{ site.title }}, {{ site.institution }}</p>
 
 <div class="chip-container" markdown="0">
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Electrodynamics</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Path Integrals</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Superfluidity</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Parton Model</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Quantum Computing</a>
-<a href="{{ site.url }}{{ site.baseurl }}/research" class="chip">Nanotechnology</a>
+{% for item in site.data.research %}<a href="{{ site.url }}{{ site.baseurl }}/interests" class="chip">{{ item.title }}</a>
+{% endfor %}</div>
+
+<div class="callout" markdown="0">
+<div class="callout-title"><i class="fa-solid fa-handshake callout-icon"></i> Open to Collaborations &amp; Internships</div>
+<p>I am always happy to discuss research collaborations on video misinformation, responsible AI, or related topics. I also welcome prospective interns and students — see the <a href="https://media-bias-research.org/join-us/" target="_blank">Media Bias Group</a> and <a href="https://www.nii.ac.jp/en/about/international/mouresearch/" target="_blank">NII internship</a> pages, or <a href="mailto:{{ site.email }}">reach out directly</a>.</p>
 </div>
 
-Theoretical physics is a branch of physics that focuses on the development of mathematical models and theories to understand and explain natural phenomena.
-It plays a crucial role in our understanding of the fundamental laws of the universe and the fundamental particles that make up all matter.
-Research in theoretical physics helps us to make predictions about how the universe works and to test these predictions through experiments.
-
+<!--
 <div class="callout callout-success" markdown="0">
-<div class="callout-title"><i class="fa-solid fa-award callout-icon"></i> Nobel Prize in Physics, 1965</div>
-<p>Awarded the Nobel Prize jointly with Julian Schwinger and Shin'ichiro Tomonaga for fundamental work in quantum electrodynamics, with deep-ploughing consequences for the physics of elementary particles.</p>
+<div class="callout-title"><i class="fa-solid fa-award callout-icon"></i> Award placeholder</div>
+<p>Uncomment and update this block when you have an award or highlight to feature.</p>
 </div>
+-->
 
+<!--
 <div class="banner-frame" markdown="0">
-<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Feynman diagrams" loading="lazy">
-<div class="banner-caption">Examples of Feynman diagrams. Feynman R., <em>The theory of positrons. Phys. Rev.</em> (1949)</div>
+<img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" alt="Research banner" loading="lazy">
 </div>
+-->
 
 ### About me
 
-I am a physicist working in the field of quantum mechanics and quantum electrodynamics.
-I received my undergraduate degree in physics from the Massachusetts Institute of Technology (MIT) in 1939 and went on to earn my PhD from Princeton University in 1942.
-After completing my doctoral studies, I worked on the Manhattan Project, where I helped develop the first atomic bombs.
-After the war, I returned to academia, holding teaching and research positions at Cornell and now at the California Institute of Technology.
+I am a PhD student at the National Institute of Informatics (NII) and SOKENDAI in Tokyo, affiliated with the Media Bias Group.
+My research focuses on video misinformation detection — developing AI systems that identify manipulated or decontextualized video content.
+I work across the full detection pipeline, from analysing manipulation tactics and curating benchmark datasets to designing detection algorithms.
+Beyond accuracy, I am interested in how detection systems communicate uncertainty to users and whether their decisions can be meaningfully explained.
+
+### Publications
+
+{% bibliography %}
+
+<p><a href="{{ site.url }}{{ site.baseurl }}/publications">See all publications &rarr;</a></p>

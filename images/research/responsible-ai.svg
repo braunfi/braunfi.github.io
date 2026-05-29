@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220" fill="none">
+  <defs>
+    <style>
+      .bg { fill: #f0ece4; }
+      .p  { fill: #5a1a7a; }
+      .s  { stroke: #5a1a7a; fill: none; }
+      .a  { fill: #5a1a7a; fill-opacity: .12; }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: #262520; }
+        .p  { fill: #c084fc; }
+        .s  { stroke: #c084fc; fill: none; }
+        .a  { fill: #c084fc; fill-opacity: .12; }
+      }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="220" class="bg"/>
+
+  <!-- AI output node (left) -->
+  <rect x="30" y="80" width="80" height="60" rx="12" class="a"/>
+  <rect x="30" y="80" width="80" height="60" rx="12" class="s" stroke-width="2.5"/>
+  <!-- Circuit-like eyes -->
+  <circle cx="57" cy="103" r="7" class="s" stroke-width="2"/>
+  <circle cx="83" cy="103" r="7" class="s" stroke-width="2"/>
+  <circle cx="57" cy="103" r="2.5" class="p"/>
+  <circle cx="83" cy="103" r="2.5" class="p"/>
+  <!-- Flat mouth line -->
+  <line x1="57" y1="121" x2="83" y2="121" class="s" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Two output arrows (correct + wrong) -->
+  <!-- Upper arrow → correct output -->
+  <line x1="110" y1="96"  x2="180" y2="68"  class="s" stroke-width="2" stroke-dasharray="6 3" opacity=".6"/>
+  <polygon points="173,64 184,70 177,77" class="p" opacity=".6"/>
+  <!-- Checkmark at end -->
+  <circle cx="195" cy="68" r="14" class="a"/>
+  <circle cx="195" cy="68" r="14" class="s" stroke-width="2"/>
+  <polyline points="187,68 193,75 206,58" class="s" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Lower arrow → wrong output -->
+  <line x1="110" y1="124" x2="180" y2="152" class="s" stroke-width="2.5"/>
+  <polygon points="173,148 184,154 177,161" class="p"/>
+  <!-- ✗ at end of wrong path -->
+  <circle cx="195" cy="156" r="14" class="a"/>
+  <circle cx="195" cy="156" r="14" class="s" stroke-width="2"/>
+  <line x1="188" y1="149" x2="202" y2="163" class="s" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="202" y1="149" x2="188" y2="163" class="s" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Person silhouette (affected by wrong output) -->
+  <!-- Head -->
+  <circle cx="305" cy="80" r="22" class="a"/>
+  <circle cx="305" cy="80" r="22" class="s" stroke-width="2.5"/>
+  <!-- Body -->
+  <path d="M270 165 Q270 118 305 118 Q340 118 340 165" class="a"/>
+  <path d="M270 165 Q270 118 305 118 Q340 118 340 165" class="s" stroke-width="2.5"/>
+
+  <!-- Warning triangle over person -->
+  <polygon points="305,20 355,108 255,108" class="a"/>
+  <polygon points="305,20 355,108 255,108" class="s" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- ! mark in triangle -->
+  <line x1="305" y1="42" x2="305" y2="80" class="s" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="305" cy="93" r="4" class="p"/>
+
+  <!-- Arrow from wrong output to person -->
+  <line x1="215" y1="156" x2="270" y2="140" class="s" stroke-width="2" stroke-dasharray="5 3" opacity=".7"/>
+</svg>

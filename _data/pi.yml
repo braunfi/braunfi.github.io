@@ -3,9 +3,16 @@
 # Delete this file if you only need the basics.
 
 # EXAMPLE -- replace or delete
+# - education:
+#     - "(1942) Ph.D. Physics, Princeton University"
+#     - "(1939) B.S. Physics, Massachusetts Institute of Technology"
+#   educationshort:
+#     - "(1942) Ph.D. Physics, Princeton"
+#     - "(1939) B.S. Physics, MIT"
+
 - education:
-    - "(1942) Ph.D. Physics, Princeton University"
-    - "(1939) B.S. Physics, Massachusetts Institute of Technology"
+    - "(2023) B.Sc. Media Technology, Technical University Ilmenau"
+    - "(2025) M.Sc. Media Technology, Technical University Ilmenau"
   educationshort:
-    - "(1942) Ph.D. Physics, Princeton"
-    - "(1939) B.S. Physics, MIT"
+    - "(2023) B.Sc. MT, TU Ilmenau"
+    - "(2025) M.Sc. MT, TU Ilmenau"

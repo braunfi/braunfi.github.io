@@ -31,10 +31,11 @@
   <link rel="alternate icon" href="{{ site.url }}{{ site.baseurl }}/favicon.ico">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name | escape }}" href="{{ site.url }}{{ site.baseurl }}/feed.xml">
 
-  <!-- Accent color from config -->
+  <!-- Accent color from config: light mode uses configured color, dark mode keeps the template teal -->
   {% if site.accent_color %}
   <style>
     :root { --accent: {{ site.accent_color }}; --accent-hover: {{ site.accent_color }}; }
+    [data-bs-theme="dark"] { --accent: #3dbaa8; --accent-hover: #5dd4c2; --accent-light: rgba(61,186,168,0.1); }
   </style>
   {% endif %}
 
