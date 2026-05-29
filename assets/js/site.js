@@ -55,12 +55,13 @@
       var entries = document.querySelectorAll('[data-pub-searchable]');
 
       entries.forEach(function (entry) {
+        var row = entry.closest('li') || entry;
         if (!query) {
-          entry.style.display = '';
+          row.style.display = '';
           return;
         }
         var text = entry.textContent.toLowerCase();
-        entry.style.display = text.includes(query) ? '' : 'none';
+        row.style.display = text.includes(query) ? '' : 'none';
       });
     });
   }

@@ -39,8 +39,10 @@
   <div class="pub-actions">
 
     {% comment %} Resolve a linkable URL: explicit url field > local pdf file > DOI {% endcomment %}
-    {% assign _pub_url = entry.url | strip %}
-    {% assign _doi_str = entry.doi | strip %}
+    {% capture _pub_url %}{{ entry.url }}{% endcapture %}
+    {% assign _pub_url = _pub_url | strip %}
+    {% capture _doi_str %}{{ entry.doi }}{% endcapture %}
+    {% assign _doi_str = _doi_str | strip %}
 
     {% if _pub_url != "" %}
     <a href="{{ _pub_url }}" target="_blank" class="btn-pill btn-pdf">PDF</a>
@@ -59,7 +61,7 @@
       {% endif %}
     {% endif %}
 
-    {% if _doi_str != "" and entry.type != 'unpublished' %}
+    {% if _doi_str != "" %}
     <a href="https://doi.org/{{ _doi_str }}" target="_blank" class="btn-pill btn-doi">DOI</a>
     {% endif %}
 
